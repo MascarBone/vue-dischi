@@ -1,6 +1,6 @@
 <template>
   <div class="my_disc">
-      <div class="my_disc_img">
+      <div class="my_disc_img mb-3">
           <img :src="discItem.poster" :alt="discItem.title + ' - Album image'">
       </div>
       <div class="my_disc_text">
@@ -45,7 +45,7 @@ export default {
 
 .my_disc {
     background-color: $bgGreyLight;
-    padding: 10px 30px;
+    padding: 10px 15px;
     height: 100%;
 }
 .my_disc_img{
@@ -53,6 +53,7 @@ export default {
     display: flex;
     align-items: center;
     overflow: hidden;
+
 
     img {
         width: 100%;
@@ -63,10 +64,12 @@ export default {
 
     h2 {
         color: $colorWhite;
+        font-size: 1.5rem;
     }
     p {
         color: $colorGrey;
         margin: 5px 0;
+        font-size: 1.2rem;
     }
 }
 
