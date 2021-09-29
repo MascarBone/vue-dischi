@@ -1,9 +1,9 @@
 <template>
-  <div class="disc">
-      <div class="disc_img">
+  <div class="my_disc">
+      <div class="my_disc_img">
           <img :src="discItem.poster" :alt="discItem.title + ' - Album image'">
       </div>
-      <div class="disc_text">
+      <div class="my_disc_text">
           <h2>{{discItem.title}}</h2>
           <p>{{discItem.author}}</p>
           <p>{{discItem.year}}</p>
@@ -40,16 +40,40 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../style/variables.scss';
 
-.disc_img{
-    // height: 250px;
-    // display: flex;
-    // align-items: center;
 
+.my_disc {
+    background-color: $bgGreyLight;
+    padding: 10px 30px;
+    height: 100%;
+}
+.my_disc_img{
+    height: 180px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 
     img {
         width: 100%;
     }
 }
 
+.my_disc_text {
+
+    h2 {
+        color: $colorWhite;
+    }
+    p {
+        color: $colorGrey;
+        margin: 5px 0;
+    }
+}
+
+// @media screen and (min-width: 992px){
+//     .disc_img{height: 250px;}
+// }
+// @media screen and (min-width: 768px){
+//     .disc_img{height: 180px;}
+// }
 </style>

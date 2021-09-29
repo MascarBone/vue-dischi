@@ -16,7 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/bootstrap";
+@import './style/variables.scss';
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

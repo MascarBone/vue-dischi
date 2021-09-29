@@ -1,12 +1,13 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-2" v-for="(element,index) in listAlbum" :key="index">
-        <Disc :discItem="element"/>
-      </div>
-    </div>  
-  </div>
-  
+  <div class="my_bg_wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="my_box-disc col-lg-2 col-3 mx-1 my-4" v-for="(element,index) in listAlbum" :key="index">
+          <Disc :discItem="element"/>
+        </div>
+      </div>  
+    </div>
+  </div>   
 </template>
 
 <script>
@@ -38,7 +39,13 @@ export default {
 }
 </script>
 
-<style>
-/* @import "~bootstrap/scss/bootstrap-grid"; */
+<style lang="scss">
+@import '../style/variables.scss';
 
+  .my_bg_wrapper {
+    background-color: $bgGreyDark;  
+  }
+  .my_box-disc {
+    text-align: center;
+  }
 </style>
