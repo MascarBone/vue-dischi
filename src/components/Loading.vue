@@ -28,8 +28,8 @@ export default {
     }
 
     @keyframes aniload {
-        from {transform: scale(0.9);}
-        to {transform: scale(1.1);}
+        from {transform: scale(0.9)}
+        to {transform: scale(1.1)}
     }
 }
 </style>
