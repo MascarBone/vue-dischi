@@ -1,6 +1,6 @@
 <template>
   <select name="" id="">
-      <option v-for="(element, index) in list" :key="index" value="">{{element}}</option>
+      <option @click="$emit('selection', element)" v-for="(element, index) in list" :key="index" value="">{{element}}</option>
   </select>
 </template>
 
@@ -8,9 +8,18 @@
 export default {
     name: 'Selection',
 
+
+
     props: {
         list: Array,
     },
+
+    methods: {
+        change (el) {
+            console.log('change it');
+            console.log(el)
+        }
+    }
 }
 </script>
 

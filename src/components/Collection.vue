@@ -6,12 +6,12 @@
           <div class="row">
 
             <div class="col-3">
-              <Selection :list="listGenre"/>
+              <Selection :list="listGenre" @selection="changeGenre"/>
             </div>
 
             <div class="col-9">
               <div class="row justify-content-center">
-                <div class="my_box-disc col-lg-2 col-3 mx-1 my-4" v-for="(element,index) in listAlbum" :key="index">
+                <div class="my_box-disc col-lg-2 col-3 mx-1 my-4" v-for="(element,index) in filteredByGenre" :key="index">
                   <Disc :discItem="element"/>
                 </div>
               </div>              
@@ -45,6 +45,7 @@ export default {
 
       loaded: false,
 
+      selectedGenre: 'ALL',
     }
   },
 
@@ -54,20 +55,41 @@ export default {
      * Proprietà computed che ritorna un array univoco dei generi musicali disponibili
      */
     listGenre: function() {
-      return this.listAlbum.map(el => el.genre)
+      const tempArray = this.listAlbum.map(el => el.genre)
       // La funzione .map restituisce un array di pari lunghezza contenete solo i generi
       .filter((elemento, index, array) => {
         // La funzione .filter applicata a .map restituisce una sola volta il valore che trova nella lista
         // Se l'indice (index) non corrisponde all'indice (indexOf(elemento)) trovato, allora vuol dire che ne è presente più di uno
         // e non prosegue con l'inserimento di quest'ultimo
-        console.log(elemento);
-        console.log(index);
-        console.log(array);
-        console.log(array.indexOf(elemento));
-        return array.indexOf(elemento) === index;
 
+        // console.log(elemento);
+        // console.log(index);
+        // console.log(array);
+        // console.log(array.indexOf(elemento));
+        return array.indexOf(elemento) === index;
       });
+      tempArray.sort();
+      tempArray.unshift('ALL');
+      return tempArray;
     },
+
+    /**
+     * Array Filtrato per genere
+     */
+    filteredByGenre: function() {
+      if (this.selectedGenre.toLowerCase() == 'all')
+      {
+        return this.listAlbum
+      }
+      
+      return this.listAlbum.filter(element => element.genre == this.selectedGenre)
+    }
+  },
+
+  methods: {
+    changeGenre(el) {
+      this.selectedGenre = el;
+    }
   },
 
   components: {
